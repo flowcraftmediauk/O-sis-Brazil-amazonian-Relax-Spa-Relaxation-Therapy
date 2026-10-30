@@ -1,0 +1,67 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Default Deny
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return isSignedIn() && (
+        request.auth.token.email == "oasisfilialalgarve@gmail.com" ||
+        request.auth.token.email == "flowcraftmediauk@gmail.com"
+      );
+    }
+
+    function isValidInquiry(data) {
+      return data.keys().hasAll(['clientName', 'clientPhone', 'serviceName', 'status', 'createdAt']) &&
+        data.keys().hasOnly(['clientName', 'clientPhone', 'clientEmail', 'serviceName', 'preferredDate', 'notes', 'status', 'createdAt', 'userId']) &&
+        data.clientName is string && data.clientName.size() >= 1 && data.clientName.size() <= 100 &&
+        data.clientPhone is string && data.clientPhone.size() >= 5 && data.clientPhone.size() <= 30 &&
+        data.serviceName is string && data.serviceName.size() >= 2 && data.serviceName.size() <= 120 &&
+        (!('clientEmail' in data) || (data.clientEmail is string && data.clientEmail.size() <= 120)) &&
+        (!('preferredDate' in data) || (data.preferredDate is string && data.preferredDate.size() <= 50)) &&
+        (!('notes' in data) || (data.notes is string && data.notes.size() <= 500)) &&
+        (!('userId' in data) || (data.userId is string && data.userId.size() <= 128 && (isSignedIn() ? data.userId == request.auth.uid : true))) &&
+        data.status in ['pending', 'contacted', 'completed'] &&
+        data.createdAt is string && data.createdAt.size() <= 50;
+    }
+
+    match /appointment_inquiries/{inquiryId} {
+      allow get: if isValidId(inquiryId) && (
+        isAdmin() ||
+        (isSignedIn() && resource.data.userId == request.auth.uid)
+      );
+
+      allow list: if isAdmin() || (
+        isSignedIn() && resource.data.userId == request.auth.uid
+      );
+
+      allow create: if isValidId(inquiryId) &&
+        isValidInquiry(incoming()) &&
+        incoming().status == 'pending';
+
+      allow update: if isValidId(inquiryId) &&
+        isValidInquiry(incoming()) &&
+        isAdmin() && incoming().diff(existing()).affectedKeys().hasOnly(['status', 'notes']);
+
+      allow delete: if isValidId(inquiryId) && isAdmin();
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "entities": {
+    "AppointmentInquiry": {
+      "title": "AppointmentInquiry",
+      "description": "Client appointment booking inquiry for spa therapy services",
+      "type": "object",
+      "properties": {
+        "clientName": {
+          "type": "string",
+          "maxLength": 100,
+          "description": "Full name of the requesting client"
+        },
+        "clientEmail": {
+          "type": "string",
+          "maxLength": 120,
+          "description": "Optional email address of the client"
+        },
+        "clientPhone": {
+          "type": "string",
+          "maxLength": 30,
+          "description": "Phone number or WhatsApp of the client"
+        },
+        "serviceName": {
+          "type": "string",
+          "maxLength": 120,
+          "description": "Name of the requested massage or spa service"
+        },
+        "preferredDate": {
+          "type": "string",
+          "maxLength": 50,
+          "description": "Preferred appointment date and time window"
+        },
+        "notes": {
+          "type": "string",
+          "maxLength": 500,
+          "description": "Optional client notes or preferences"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["pending", "contacted", "completed"],
+          "description": "Status of the inquiry"
+        },
+        "userId": {
+          "type": "string",
+          "maxLength": 128,
+          "description": "Optional Firebase Auth UID if the client logged in"
+        },
+        "createdAt": {
+          "type": "string",
+          "maxLength": 50,
+          "description": "ISO timestamp of submission"
+        }
+      },
+      "required": ["clientName", "clientPhone", "serviceName", "status", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/appointment_inquiries/{inquiryId}": {
+      "schema": "AppointmentInquiry",
+      "description": "Appointment booking inquiries submitted through the website"
+    }
+  }
+}
