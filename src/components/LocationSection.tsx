@@ -8,13 +8,13 @@ export const LocationSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-14 space-y-3">
           <span className="text-xs uppercase tracking-[0.25em] text-[#B68D5D] font-medium">
-            Algarve Sanctuary
+            Refúgio no Algarve
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#27211D]">
-            Located in Faro, Portugal
+            Localizado em Faro, Portugal
           </h2>
           <p className="text-sm text-[#736960] font-light leading-relaxed">
-            Conveniently situated in the historic coastal city of Faro in the southern Algarve region.
+            Localizado com conveniência na histórica cidade costeira de Faro, no coração da região do Algarve.
           </p>
         </div>
 
@@ -24,34 +24,34 @@ export const LocationSection: React.FC = () => {
             <div className="space-y-4">
               <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#F4EFEB] rounded-full text-xs font-medium text-[#736960] border border-[#E8DDD2]">
                 <MapPin className="w-3.5 h-3.5 text-[#B68D5D]" />
-                <span>Verified City: Faro, Portugal</span>
+                <span>Cidade Confirmada: Faro, Portugal</span>
               </div>
 
               <h3 className="font-serif text-2xl font-medium text-[#27211D]">
-                Private Studio Setting
+                Gabinete Privativo e Calmo
               </h3>
 
               <p className="text-xs sm:text-sm text-[#5C5248] leading-relaxed font-light">
-                To guarantee maximum peace, privacy, and personal attention for every guest, treatments are conducted exclusively on an appointment-only schedule.
+                Para assegurar total tranquilidade, privacidade e dedicação exclusiva a cada cliente, os tratamentos decorrem unicamente mediante agendamento prévio.
               </p>
 
               <div className="p-4 bg-[#F4EFEB] rounded-xl border border-[#E8DDD2] space-y-2">
                 <div className="flex items-center gap-2 text-xs font-medium text-[#27211D]">
                   <Calendar className="w-4 h-4 text-[#B68D5D]" />
-                  <span>Strict Appointment Policy</span>
+                  <span>Política Estrita de Marcação</span>
                 </div>
                 <p className="text-xs text-[#736960] leading-relaxed">
-                  Exact studio door number and access directions are shared directly with confirmed clients upon booking reservation.
+                  A morada exata do espaço e as indicações de acesso são transmitidas diretamente aquando da confirmação da reserva.
                 </p>
               </div>
             </div>
 
             <div className="pt-4 border-t border-[#E8DDD2]">
               <span className="text-[11px] text-[#8C8075] uppercase tracking-wider block mb-1">
-                Pending Client Clarification:
+                Aguardando Esclarecimento do Cliente:
               </span>
               <p className="text-xs text-[#5C5248]">
-                Exact street address and postal code will be linked to an interactive Google Maps pin as soon as provided by the client.
+                A morada com rua e código postal exatos será associada ao mapa interativo do Google Maps assim que confirmada pelo cliente.
               </p>
             </div>
           </div>
@@ -66,16 +66,16 @@ export const LocationSection: React.FC = () => {
                 Faro, Algarve
               </h4>
               <p className="text-xs text-[#736960] leading-relaxed">
-                Portugal's southern gateway of sunshine, ocean air, and serene rejuvenation.
+                A luminosa porta de entrada do sul de Portugal, mar, serenidade e descanso.
               </p>
               <div className="pt-2">
                 <a
-                  href={`https://wa.me/${VERIFIED_BUSINESS_INFO.phoneClean}?text=Hello%20O%C3%A1sis%20Brazil%2C%20what%20is%20the%20exact%20location%20address%20in%20Faro%3F`}
+                  href={`https://wa.me/${VERIFIED_BUSINESS_INFO.phoneClean}?text=Ol%C3%A1%20O%C3%A1sis%20Brazil%2C%20qual%20%C3%A9%20a%20localiza%C3%A7%C3%A3o%20e%20morada%20exata%20do%20espa%C3%A7o%20em%20Faro%3F`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block text-xs uppercase tracking-wider font-medium text-[#27211D] underline hover:text-[#B68D5D] transition-colors"
                 >
-                  Request Exact Studio Directions →
+                  Pedir Indicações do Espaço →
                 </a>
               </div>
             </div>

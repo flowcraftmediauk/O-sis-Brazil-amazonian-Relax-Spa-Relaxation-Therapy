@@ -14,7 +14,7 @@ export const AboutSection: React.FC = () => {
               <div className="relative rounded-2xl overflow-hidden border border-[#E8DDD2] shadow-sm">
                 <img
                   src={interiorImg}
-                  alt="Tranquil spa ambiance at Oásis Brazil amazonian Relax"
+                  alt="Ambiente acolhedor no Oásis Brazil amazonian Relax em Faro"
                   className="w-full h-[440px] sm:h-[500px] object-cover"
                 />
               </div>
@@ -30,7 +30,7 @@ export const AboutSection: React.FC = () => {
                       {VERIFIED_BUSINESS_INFO.facebook.name}
                     </p>
                     <p className="text-[11px] text-[#736960]">
-                      {VERIFIED_BUSINESS_INFO.facebook.likes} Facebook community likes
+                      {VERIFIED_BUSINESS_INFO.facebook.likes} gostos na comunidade Facebook
                     </p>
                   </div>
                 </div>
@@ -40,7 +40,7 @@ export const AboutSection: React.FC = () => {
                   rel="noopener noreferrer"
                   className="mt-2.5 text-[11px] font-medium text-[#27211D] hover:underline flex items-center gap-1"
                 >
-                  <span>View Facebook profile</span>
+                  <span>Ver página no Facebook</span>
                   <ExternalLink className="w-3 h-3" />
                 </a>
               </div>
@@ -51,33 +51,33 @@ export const AboutSection: React.FC = () => {
           <div className="lg:col-span-7 space-y-6">
             <div className="space-y-2">
               <span className="text-xs uppercase tracking-[0.25em] text-[#B68D5D] font-medium">
-                Sanctuary in Faro
+                O Refúgio em Faro
               </span>
               <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium text-[#27211D] leading-tight">
-                Dedicated to Peace, Balance & Deep Relaxation
+                Dedicado à Paz, Equilíbrio e Relaxamento Profundo
               </h2>
             </div>
 
             <p className="text-base sm:text-lg text-[#5C5248] leading-relaxed font-light">
-              <strong className="font-normal text-[#27211D]">Oásis Brazil amazonian Relax</strong> is a specialized relaxation therapy and spa business based in Faro, Portugal. Created as a quiet haven away from everyday stress, sessions focus on restoring physical ease, releasing tension, and calming the mind.
+              O <strong className="font-normal text-[#27211D]">Oásis Brazil amazonian Relax</strong> é um espaço especializado em terapias de relaxamento e spa sediado em Faro, Portugal. Pensado como um santuário de tranquilidade face ao ritmo acelerado do quotidiano, cada sessão é desenhada para descontrair a musculatura, aliviar a sobrecarga física e acalmar os sentidos.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
               <div className="p-4 bg-[#F4EFEB] rounded-xl border border-[#E8DDD2]">
                 <h4 className="font-serif text-lg font-medium text-[#27211D] mb-1">
-                  Individual Attention
+                  Atendimento Individualizado
                 </h4>
                 <p className="text-xs text-[#736960] leading-relaxed">
-                  Every therapy is conducted on a strictly scheduled appointment basis to guarantee privacy and undivided care.
+                  Todas as terapias decorrem exclusivamente com marcação prévia, garantindo total privacidade, silêncio e dedicação integral.
                 </p>
               </div>
 
               <div className="p-4 bg-[#F4EFEB] rounded-xl border border-[#E8DDD2]">
                 <h4 className="font-serif text-lg font-medium text-[#27211D] mb-1">
-                  Amazonian Harmony
+                  Harmonia Sensorial
                 </h4>
                 <p className="text-xs text-[#736960] leading-relaxed">
-                  Relaxation techniques inspired by Brazilian wellness traditions, complemented by soothing natural oils and thermal therapies.
+                  Técnicas de relaxamento inspiradas no bem-estar brasileiro, aliadas a aromas botânicos suaves e conforto térmico revigorante.
                 </p>
               </div>
             </div>
@@ -87,10 +87,10 @@ export const AboutSection: React.FC = () => {
               <Shield className="w-5 h-5 text-[#B68D5D] shrink-0 mt-0.5" />
               <div className="text-xs text-[#5C5248] space-y-1">
                 <p className="font-medium text-[#27211D]">
-                  Preview Notice — Authentic Business Profiles
+                  Nota de Transparência do Website
                 </p>
                 <p>
-                  To uphold 100% integrity, therapist qualifications, certifications, and complete personal biography are pending client confirmation and will be published upon verification.
+                  Para preservar a máxima integridade e veracidade dos dados, as qualificações, certificações oficiais e a biografia detalhada do(a) terapeuta aguardam confirmação do cliente para inclusão nesta secção.
                 </p>
               </div>
             </div>

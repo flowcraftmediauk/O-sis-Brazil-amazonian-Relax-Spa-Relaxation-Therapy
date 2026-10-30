@@ -5,28 +5,28 @@ import { VERIFIED_BUSINESS_INFO } from '../data/servicesData';
 export const OverviewStrip: React.FC = () => {
   const items = [
     {
-      title: 'Available',
-      detail: 'By Appointment Only',
+      title: 'Disponibilidade',
+      detail: 'Apenas por Agendamento',
       icon: Calendar,
-      caption: 'Advance booking required',
+      caption: 'Reserva prévia necessária',
     },
     {
-      title: 'Location',
+      title: 'Localização',
       detail: VERIFIED_BUSINESS_INFO.location,
       icon: MapPin,
-      caption: 'Algarve region',
+      caption: 'Região do Algarve',
     },
     {
-      title: 'Category',
+      title: 'Categoria',
       detail: VERIFIED_BUSINESS_INFO.category,
       icon: Sparkles,
-      caption: 'Specialized therapy sanctuary',
+      caption: 'Espaço de relaxamento',
     },
     {
-      title: 'Sessions',
+      title: 'Sessões',
       detail: '50 / 60 / 120 min',
       icon: Clock,
-      caption: 'Preliminary flyer durations',
+      caption: 'Durações preliminares',
     },
   ];
 

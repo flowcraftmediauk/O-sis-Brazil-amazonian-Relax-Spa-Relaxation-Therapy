@@ -4,30 +4,30 @@ import { PRELIMINARY_SERVICES, HELD_BACK_ITEMS, VERIFIED_BUSINESS_INFO } from '.
 import { ServiceItem } from '../types';
 
 interface ServicesSectionProps {
-  onSelectService: (serviceName: string) => void;
+  onSelectService: (serviceName?: string) => void;
 }
 
 export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectService }) => {
   return (
     <section id="services" className="py-20 sm:py-28 bg-[#F4EFEB]/50 border-t border-[#E8DDD2]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header matching the "Choose Your Path" reference */}
+        {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20 space-y-3">
           <span className="text-xs uppercase tracking-[0.25em] text-[#B68D5D] font-medium">
-            Massage & Relaxation Therapies
+            Massagens e Terapias de Relaxamento
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#27211D]">
-            Choose Your Treatment
+            Escolha o Seu Tratamento
           </h2>
           <p className="text-sm sm:text-base text-[#736960] font-light leading-relaxed">
-            The preliminary services identified from the client's WhatsApp promotional material. All sessions are delivered strictly by appointment in Faro, Portugal.
+            Serviços preliminares identificados a partir do material promocional do WhatsApp da empresa. Sessões realizadas estritamente por agendamento prévio em Faro, Portugal.
           </p>
 
           {/* Client Confirmation Warning Banner */}
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-amber-50 border border-amber-200/80 rounded-lg text-xs text-amber-900 mt-2 text-left">
             <AlertCircle className="w-4 h-4 text-amber-600 shrink-0" />
             <span>
-              <strong>Preliminary Rates:</strong> Durations and fees below reflect initial promotional flyers and are marked for client confirmation before final publication.
+              <strong>Preços Preliminares:</strong> Os valores e durações abaixo foram extraídos de folhetos promocionais e carecem de validação final do cliente antes da publicação definitiva.
             </span>
           </div>
         </div>
@@ -54,7 +54,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
                 {service.id === 'pack-spa-day' && (
                   <div className="absolute top-3 right-3 bg-[#27211D] text-[#FAF7F2] px-2 py-0.5 rounded text-[10px] uppercase tracking-wider flex items-center gap-1 shadow-sm">
                     <Gift className="w-3 h-3 text-amber-300" />
-                    <span>Gift Card</span>
+                    <span>Cartão Presente</span>
                   </div>
                 )}
               </div>
@@ -89,14 +89,14 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
                   <div className="flex items-baseline justify-between">
                     <div>
                       <span className="text-xs text-[#8C8075] uppercase tracking-wider block">
-                        Promotional Rate*
+                        Valor Promocional*
                       </span>
                       <span className="font-serif text-2xl font-normal text-[#27211D]">
                         {service.preliminaryPrice}
                       </span>
                     </div>
                     <span className="text-[10px] text-amber-800 bg-amber-100/70 border border-amber-200 px-2 py-0.5 rounded font-medium">
-                      Pending Client Confirmation
+                      Aguardando Confirmação
                     </span>
                   </div>
 
@@ -105,11 +105,11 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
                       onClick={() => onSelectService(service.name)}
                       className="w-full text-center py-2 text-xs uppercase tracking-wider font-medium text-[#27211D] border border-[#27211D] hover:bg-[#27211D] hover:text-[#FAF7F2] transition-colors cursor-pointer"
                     >
-                      Inquire Online
+                      Pedido Online
                     </button>
 
                     <a
-                      href={`https://wa.me/${VERIFIED_BUSINESS_INFO.phoneClean}?text=Hello%20O%C3%A1sis%20Brazil%2C%20I%20would%20like%20to%20inquire%20about%20the%20${encodeURIComponent(service.name)}%20(${encodeURIComponent(service.duration)})`}
+                      href={`https://wa.me/${VERIFIED_BUSINESS_INFO.phoneClean}?text=Ol%C3%A1%20O%C3%A1sis%20Brazil%2C%20gostaria%20de%20saber%20mais%20e%20agendar%20a%20sess%C3%A3o%20de%20${encodeURIComponent(service.name)}%20(${encodeURIComponent(service.duration)}).`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="w-full text-center py-2 text-xs uppercase tracking-wider font-medium bg-[#27211D] text-[#FAF7F2] hover:bg-[#3E342B] transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
@@ -129,11 +129,11 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
           <div className="flex items-center gap-2 mb-4">
             <Info className="w-5 h-5 text-[#B68D5D]" />
             <h4 className="font-serif text-xl font-medium text-[#27211D]">
-              Items Held Back from Live Catalog (Integrity Safeguard)
+              Serviços em Espera (Garantia de Rigor e Transparência)
             </h4>
           </div>
           <p className="text-xs sm:text-sm text-[#736960] mb-6">
-            In strict compliance with our verified information rules, the following promotional items have been intentionally withheld from the public booking options until confirmed with the business owner:
+            Em conformidade com a regra de exibir apenas informação estritamente confirmada, os seguintes itens promocionais foram retidos temporariamente do catálogo público até validação com o proprietário:
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

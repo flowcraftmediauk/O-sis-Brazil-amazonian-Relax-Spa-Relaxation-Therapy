@@ -18,7 +18,6 @@ import {
   query,
   where,
   onSnapshot,
-  orderBy,
 } from 'firebase/firestore';
 import { db, auth, handleFirestoreError, OperationType, signInWithPopup, googleProvider } from '../firebase';
 import { User as FirebaseUser } from 'firebase/auth';
@@ -102,7 +101,7 @@ export const AppointmentInquirySection: React.FC<AppointmentInquirySectionProps>
     setErrorMessage(null);
 
     if (!clientName.trim() || !clientPhone.trim() || !serviceName.trim()) {
-      setErrorMessage('Please provide your name, phone number, and selected service.');
+      setErrorMessage('Por favor, indique o seu nome, contacto telefónico e o tratamento pretendido.');
       return;
     }
 
@@ -136,11 +135,11 @@ export const AppointmentInquirySection: React.FC<AppointmentInquirySectionProps>
       setSubmittedSuccess(true);
       setNotes('');
     } catch (err) {
-      console.error('Submission failed:', err);
+      console.error('Falha no envio:', err);
       try {
         handleFirestoreError(err, OperationType.CREATE, path);
       } catch (e: any) {
-        setErrorMessage('Unable to save inquiry. Please use direct WhatsApp for immediate booking.');
+        setErrorMessage('Não foi possível gravar o pedido no momento. Por favor utilize o WhatsApp direto para agendamento imediato.');
       }
     } finally {
       setSubmitting(false);
@@ -152,13 +151,13 @@ export const AppointmentInquirySection: React.FC<AppointmentInquirySectionProps>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
           <span className="text-xs uppercase tracking-[0.25em] text-[#B68D5D] font-medium">
-            Reservations & Inquiries
+            Reservas e Contacto
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#27211D]">
-            Book an Appointment
+            Agende a Sua Sessão
           </h2>
           <p className="text-sm text-[#736960] font-light leading-relaxed">
-            All relaxation therapies are provided strictly by appointment. Reach out directly via WhatsApp for fastest confirmation, or submit an online request below.
+            Todas as terapias de relaxamento são realizadas estritamente com agendamento prévio. Contacte diretamente via WhatsApp para resposta imediata ou preencha o formulário online.
           </p>
         </div>
 
@@ -172,29 +171,29 @@ export const AppointmentInquirySection: React.FC<AppointmentInquirySectionProps>
               <div className="space-y-2">
                 <div className="inline-flex items-center gap-2 px-2.5 py-1 bg-white/10 rounded-full text-[11px] font-medium text-emerald-300">
                   <span className="w-2 h-2 rounded-full bg-[#25D366] animate-pulse" />
-                  <span>Recommended & Fastest Booking</span>
+                  <span>Método Recomendado e Mais Rápido</span>
                 </div>
                 <h3 className="font-serif text-2xl font-medium">
-                  Instant WhatsApp Scheduling
+                  Agendamento Imediato por WhatsApp
                 </h3>
                 <p className="text-xs text-[#FAF7F2]/80 leading-relaxed font-light">
-                  Message directly to check availability, confirm preliminary therapy details, and reserve your private time slot.
+                  Fale diretamente para confirmar vagas disponíveis, tirar dúvidas e reservar a sua hora de relaxamento com comodidade.
                 </p>
               </div>
 
               <div className="space-y-3 pt-2">
                 <a
-                  href={`https://wa.me/${VERIFIED_BUSINESS_INFO.phoneClean}?text=Hello%20O%C3%A1sis%20Brazil%2C%20I%20would%20like%20to%20inquire%20about%20booking%20an%20appointment`}
+                  href={`https://wa.me/${VERIFIED_BUSINESS_INFO.phoneClean}?text=Ol%C3%A1%20O%C3%A1sis%20Brazil%2C%20gostaria%20de%20solicitar%20informa%C3%A7%C3%B5es%20e%20agendar%20uma%20sess%C3%A3o.`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full bg-[#25D366] hover:bg-[#20ba59] text-white py-3.5 px-6 rounded-lg font-medium text-xs uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-md transition-all cursor-pointer"
                 >
                   <MessageCircle className="w-4 h-4" />
-                  <span>Start WhatsApp Chat ({VERIFIED_BUSINESS_INFO.phone})</span>
+                  <span>Conversar no WhatsApp ({VERIFIED_BUSINESS_INFO.phone})</span>
                 </a>
 
                 <p className="text-[11px] text-[#FAF7F2]/60 text-center">
-                  Verified International Line: {VERIFIED_BUSINESS_INFO.phone}
+                  Número Internacional Oficial: {VERIFIED_BUSINESS_INFO.phone}
                 </p>
               </div>
             </div>
@@ -202,7 +201,7 @@ export const AppointmentInquirySection: React.FC<AppointmentInquirySectionProps>
             {/* Verified Contact Details Card */}
             <div className="bg-[#FAF7F2] p-6 sm:p-7 rounded-2xl border border-[#E8DDD2] space-y-5">
               <h4 className="font-serif text-lg font-medium text-[#27211D]">
-                Verified Business Directory
+                Contactos e Informações Verificadas
               </h4>
 
               <div className="space-y-4 divide-y divide-[#E8DDD2]">
@@ -210,7 +209,7 @@ export const AppointmentInquirySection: React.FC<AppointmentInquirySectionProps>
                   <Phone className="w-4 h-4 text-[#B68D5D] shrink-0 mt-1" />
                   <div>
                     <span className="text-[11px] text-[#8C8075] uppercase tracking-wider block">
-                      Telephone / WhatsApp
+                      Telefone / WhatsApp
                     </span>
                     <a
                       href={`tel:${VERIFIED_BUSINESS_INFO.phoneClean}`}
@@ -225,7 +224,7 @@ export const AppointmentInquirySection: React.FC<AppointmentInquirySectionProps>
                   <Mail className="w-4 h-4 text-[#B68D5D] shrink-0 mt-1" />
                   <div>
                     <span className="text-[11px] text-[#8C8075] uppercase tracking-wider block">
-                      Official Email
+                      Email Oficial
                     </span>
                     <a
                       href={`mailto:${VERIFIED_BUSINESS_INFO.email}`}
@@ -240,13 +239,13 @@ export const AppointmentInquirySection: React.FC<AppointmentInquirySectionProps>
                   <Clock className="w-4 h-4 text-[#B68D5D] shrink-0 mt-1" />
                   <div>
                     <span className="text-[11px] text-[#8C8075] uppercase tracking-wider block">
-                      Schedule Policy
+                      Política de Atendimento
                     </span>
                     <p className="text-sm font-medium text-[#27211D]">
-                      Strictly Appointment Only
+                      Apenas por Marcação Prévia
                     </p>
                     <span className="text-[11px] text-[#8C8075]">
-                      No walk-ins accepted without prior reservation
+                      Não são aceites entradas diretas sem agendamento
                     </span>
                   </div>
                 </div>
@@ -260,10 +259,10 @@ export const AppointmentInquirySection: React.FC<AppointmentInquirySectionProps>
               <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-[#E8DDD2] mb-6 gap-3">
                 <div>
                   <h3 className="font-serif text-2xl font-medium text-[#27211D]">
-                    Online Inquiry Request
+                    Pedido de Agendamento Online
                   </h3>
                   <p className="text-xs text-[#736960] mt-0.5">
-                    Submissions are safely recorded for the therapist's review
+                    Os pedidos são registados de forma segura para confirmação pelo espaço
                   </p>
                 </div>
 
@@ -275,12 +274,12 @@ export const AppointmentInquirySection: React.FC<AppointmentInquirySectionProps>
                     className="text-xs text-[#5C5248] hover:text-[#27211D] border border-[#D5C7B8] px-3 py-1.5 rounded flex items-center gap-1.5 self-start sm:self-auto hover:bg-[#F4EFEB] transition-colors cursor-pointer font-medium"
                   >
                     <User className="w-3.5 h-3.5" />
-                    <span>Sign in with Google</span>
+                    <span>Entrar com Google</span>
                   </button>
                 ) : (
                   <div className="text-xs text-[#5C5248] flex items-center gap-1.5 self-start sm:self-auto bg-[#F4EFEB] px-2.5 py-1 rounded">
                     <ShieldCheck className="w-3.5 h-3.5 text-emerald-700" />
-                    <span>Identified as {currentUser.displayName || currentUser.email}</span>
+                    <span>Identificado como {currentUser.displayName || currentUser.email}</span>
                   </div>
                 )}
               </div>
@@ -291,26 +290,26 @@ export const AppointmentInquirySection: React.FC<AppointmentInquirySectionProps>
                     <CheckCircle className="w-8 h-8" />
                   </div>
                   <h4 className="font-serif text-2xl font-medium text-[#27211D]">
-                    Inquiry Received
+                    Pedido Registado com Sucesso
                   </h4>
                   <p className="text-sm text-[#736960] max-w-md mx-auto">
-                    Thank you! Your inquiry for <strong>{serviceName}</strong> has been logged. You can also send this directly to WhatsApp to accelerate confirmation.
+                    Obrigado! O seu pedido para <strong>{serviceName}</strong> foi recebido. Pode também encaminhar os dados para o WhatsApp para acelerar a confirmação da sua vaga.
                   </p>
                   <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
                     <a
-                      href={`https://wa.me/${VERIFIED_BUSINESS_INFO.phoneClean}?text=Hello%20O%C3%A1sis%20Brazil%2C%20I%20just%20submitted%20an%20online%20inquiry%20for%20${encodeURIComponent(serviceName)}%20under%20the%20name%20${encodeURIComponent(clientName)}`}
+                      href={`https://wa.me/${VERIFIED_BUSINESS_INFO.phoneClean}?text=Ol%C3%A1%20O%C3%A1sis%20Brazil%2C%20acabei%20de%20submeter%20um%20pedido%20online%20para%20${encodeURIComponent(serviceName)}%20em%20nome%20de%20${encodeURIComponent(clientName)}.`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="bg-[#25D366] text-white px-5 py-2.5 rounded text-xs uppercase tracking-wider font-medium flex items-center gap-2 shadow-sm"
                     >
                       <MessageCircle className="w-4 h-4" />
-                      <span>Forward to WhatsApp</span>
+                      <span>Encaminhar no WhatsApp</span>
                     </a>
                     <button
                       onClick={() => setSubmittedSuccess(false)}
-                      className="text-xs text-[#5C5248] underline py-2"
+                      className="text-xs text-[#5C5248] underline py-2 cursor-pointer"
                     >
-                      Submit another inquiry
+                      Submeter outro pedido
                     </button>
                   </div>
                 </div>
@@ -326,28 +325,28 @@ export const AppointmentInquirySection: React.FC<AppointmentInquirySectionProps>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs uppercase tracking-wider text-[#5C5248] font-medium mb-1.5">
-                        Your Full Name *
+                        O Seu Nome Completo *
                       </label>
                       <input
                         type="text"
                         required
                         value={clientName}
                         onChange={(e) => setClientName(e.target.value)}
-                        placeholder="e.g. Maria Silva"
+                        placeholder="Ex.: Maria Silva"
                         className="w-full bg-[#FAF7F2] border border-[#D5C7B8] focus:border-[#27211D] focus:ring-0 px-3.5 py-2.5 text-sm rounded outline-none transition-colors"
                       />
                     </div>
 
                     <div>
                       <label className="block text-xs uppercase tracking-wider text-[#5C5248] font-medium mb-1.5">
-                        Phone / WhatsApp *
+                        Telefone / WhatsApp *
                       </label>
                       <input
                         type="tel"
                         required
                         value={clientPhone}
                         onChange={(e) => setClientPhone(e.target.value)}
-                        placeholder="e.g. +351 912 345 678"
+                        placeholder="Ex.: +351 912 345 678"
                         className="w-full bg-[#FAF7F2] border border-[#D5C7B8] focus:border-[#27211D] focus:ring-0 px-3.5 py-2.5 text-sm rounded outline-none transition-colors"
                       />
                     </div>
@@ -356,7 +355,7 @@ export const AppointmentInquirySection: React.FC<AppointmentInquirySectionProps>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs uppercase tracking-wider text-[#5C5248] font-medium mb-1.5">
-                        Selected Therapy Service *
+                        Tratamento Pretendido *
                       </label>
                       <select
                         value={serviceName}
@@ -373,13 +372,13 @@ export const AppointmentInquirySection: React.FC<AppointmentInquirySectionProps>
 
                     <div>
                       <label className="block text-xs uppercase tracking-wider text-[#5C5248] font-medium mb-1.5">
-                        Preferred Date / Time Window
+                        Data e Horário Pretendido
                       </label>
                       <input
                         type="text"
                         value={preferredDate}
                         onChange={(e) => setPreferredDate(e.target.value)}
-                        placeholder="e.g. Next Tuesday afternoon"
+                        placeholder="Ex.: Próxima terça-feira à tarde"
                         className="w-full bg-[#FAF7F2] border border-[#D5C7B8] focus:border-[#27211D] focus:ring-0 px-3.5 py-2.5 text-sm rounded outline-none transition-colors"
                       />
                     </div>
@@ -387,26 +386,26 @@ export const AppointmentInquirySection: React.FC<AppointmentInquirySectionProps>
 
                   <div>
                     <label className="block text-xs uppercase tracking-wider text-[#5C5248] font-medium mb-1.5">
-                      Email Address (Optional)
+                      Email (Opcional)
                     </label>
                     <input
                       type="email"
                       value={clientEmail}
                       onChange={(e) => setClientEmail(e.target.value)}
-                      placeholder="e.g. yourname@example.com"
+                      placeholder="Ex.: maria.silva@exemplo.pt"
                       className="w-full bg-[#FAF7F2] border border-[#D5C7B8] focus:border-[#27211D] focus:ring-0 px-3.5 py-2.5 text-sm rounded outline-none transition-colors"
                     />
                   </div>
 
                   <div>
                     <label className="block text-xs uppercase tracking-wider text-[#5C5248] font-medium mb-1.5">
-                      Notes or Preferences
+                      Observações ou Preferências
                     </label>
                     <textarea
                       rows={3}
                       value={notes}
                       onChange={(e) => setNotes(e.target.value)}
-                      placeholder="Any particular focus areas (neck, shoulders) or questions for the therapist..."
+                      placeholder="Indique zonas prioritárias (pescoço, costas) ou eventuais questões..."
                       className="w-full bg-[#FAF7F2] border border-[#D5C7B8] focus:border-[#27211D] focus:ring-0 px-3.5 py-2.5 text-sm rounded outline-none transition-colors resize-none"
                     />
                   </div>
@@ -418,7 +417,7 @@ export const AppointmentInquirySection: React.FC<AppointmentInquirySectionProps>
                       className="w-full bg-[#27211D] hover:bg-[#3E342B] text-[#FAF7F2] py-3.5 px-6 rounded text-xs uppercase tracking-widest font-medium transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-sm disabled:opacity-50"
                     >
                       <Send className="w-4 h-4" />
-                      <span>{submitting ? 'Submitting Inquiry...' : 'Submit Booking Inquiry'}</span>
+                      <span>{submitting ? 'A Enviar Pedido...' : 'Enviar Pedido de Agendamento'}</span>
                     </button>
                   </div>
                 </form>
@@ -428,7 +427,7 @@ export const AppointmentInquirySection: React.FC<AppointmentInquirySectionProps>
               {currentUser && myInquiries.length > 0 && (
                 <div className="mt-8 pt-6 border-t border-[#E8DDD2]">
                   <h4 className="font-serif text-base font-medium text-[#27211D] mb-3">
-                    Your Previous Inquiries (Logged in as {currentUser.displayName || currentUser.email})
+                    Os Seus Pedidos Anteriores (Sessão de {currentUser.displayName || currentUser.email})
                   </h4>
                   <div className="space-y-2 max-h-48 overflow-y-auto pr-1">
                     {myInquiries.map((inq) => (
@@ -439,12 +438,12 @@ export const AppointmentInquirySection: React.FC<AppointmentInquirySectionProps>
                         <div>
                           <p className="font-medium text-[#27211D]">{inq.serviceName}</p>
                           <p className="text-[11px] text-[#736960]">
-                            {inq.preferredDate || 'Flexible timing'} • Logged{' '}
-                            {new Date(inq.createdAt).toLocaleDateString()}
+                            {inq.preferredDate || 'Horário flexível'} • Registado em{' '}
+                            {new Date(inq.createdAt).toLocaleDateString('pt-PT')}
                           </p>
                         </div>
                         <span className="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded bg-amber-100 text-amber-800 font-medium">
-                          {inq.status}
+                          {inq.status === 'pending' ? 'Pendente' : inq.status === 'contacted' ? 'Contactado' : 'Concluído'}
                         </span>
                       </div>
                     ))}

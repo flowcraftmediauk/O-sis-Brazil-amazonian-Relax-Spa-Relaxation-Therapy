@@ -19,7 +19,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentUser, onOpenAudit, onOpen
       setAuthLoading(true);
       await signInWithPopup(auth, googleProvider);
     } catch (err) {
-      console.error('Login error:', err);
+      console.error('Erro ao iniciar sessão:', err);
     } finally {
       setAuthLoading(false);
     }
@@ -29,17 +29,17 @@ export const Navbar: React.FC<NavbarProps> = ({ currentUser, onOpenAudit, onOpen
     try {
       await signOut(auth);
     } catch (err) {
-      console.error('Logout error:', err);
+      console.error('Erro ao terminar sessão:', err);
     }
   };
 
   const navLinks = [
-    { label: 'About', href: '#about' },
-    { label: 'Services', href: '#services' },
-    { label: 'Preliminary Rates', href: '#pricing' },
-    { label: 'Atmosphere', href: '#gallery' },
-    { label: 'Location', href: '#location' },
-    { label: 'Contact', href: '#contact' },
+    { label: 'Sobre', href: '#about' },
+    { label: 'Serviços', href: '#services' },
+    { label: 'Tabela Preliminar', href: '#pricing' },
+    { label: 'Ambiente', href: '#gallery' },
+    { label: 'Localização', href: '#location' },
+    { label: 'Marcações', href: '#contact' },
   ];
 
   return (
@@ -49,7 +49,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentUser, onOpenAudit, onOpen
         <div className="flex items-center space-x-2">
           <span className="inline-block w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
           <span className="font-medium tracking-wide">
-            Client Preview Website — Strictly Verified Business Information
+            Pré-visualização do Website — Baseado Estritamente em Informações Oficiais
           </span>
         </div>
         <button
@@ -57,7 +57,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentUser, onOpenAudit, onOpen
           className="text-amber-300 hover:text-amber-200 underline flex items-center gap-1.5 transition-colors cursor-pointer text-xs"
         >
           <AlertCircle className="w-3.5 h-3.5" />
-          <span>Information Missing (Ask Client)</span>
+          <span>Informações em Falta (Perguntar ao Cliente)</span>
         </button>
       </div>
 
@@ -99,7 +99,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentUser, onOpenAudit, onOpen
                 </span>
                 <button
                   onClick={handleLogout}
-                  title="Sign out"
+                  title="Terminar sessão"
                   className="text-[#736960] hover:text-red-700 ml-1 cursor-pointer"
                 >
                   <LogOut className="w-3.5 h-3.5" />
@@ -112,19 +112,19 @@ export const Navbar: React.FC<NavbarProps> = ({ currentUser, onOpenAudit, onOpen
                 className="text-xs px-3 py-1.5 border border-[#D5C7B8] rounded text-[#5C5248] hover:bg-[#F4EFEB] transition-colors flex items-center gap-1.5 cursor-pointer font-medium"
               >
                 <User className="w-3.5 h-3.5" />
-                <span>Sign in</span>
+                <span>Entrar</span>
               </button>
             )}
 
             {/* Direct WhatsApp CTA */}
             <a
-              href={`https://wa.me/${VERIFIED_BUSINESS_INFO.phoneClean}?text=Hello%20O%C3%A1sis%20Brazil%2C%20I%20would%20like%20to%20inquire%20about%20booking%20a%20relaxation%20session`}
+              href={`https://wa.me/${VERIFIED_BUSINESS_INFO.phoneClean}?text=Ol%C3%A1%20O%C3%A1sis%20Brazil%2C%20gostaria%20de%20solicitar%20informa%C3%A7%C3%B5es%20e%20agendar%20uma%20sess%C3%A3o%20de%20relaxamento.`}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-[#27211D] text-[#FAF7F2] hover:bg-[#3E342B] px-4 py-2 text-xs uppercase tracking-widest font-medium transition-all shadow-sm flex items-center gap-2 group cursor-pointer"
             >
               <MessageCircle className="w-3.5 h-3.5 text-[#25D366] transition-transform group-hover:scale-110" />
-              <span>WhatsApp Booking</span>
+              <span>Agendar via WhatsApp</span>
             </a>
           </div>
 
@@ -133,7 +133,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentUser, onOpenAudit, onOpen
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 text-[#27211D] hover:bg-[#F4EFEB] rounded-md transition-colors"
-              aria-label="Toggle navigation menu"
+              aria-label="Alternar menu de navegação"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -159,13 +159,13 @@ export const Navbar: React.FC<NavbarProps> = ({ currentUser, onOpenAudit, onOpen
 
           <div className="space-y-3 pt-2">
             <a
-              href={`https://wa.me/${VERIFIED_BUSINESS_INFO.phoneClean}?text=Hello%20O%C3%A1sis%20Brazil%2C%20I%20would%20like%20to%20inquire%20about%20booking%20a%20relaxation%20session`}
+              href={`https://wa.me/${VERIFIED_BUSINESS_INFO.phoneClean}?text=Ol%C3%A1%20O%C3%A1sis%20Brazil%2C%20gostaria%20de%20agendar%20uma%20sess%C3%A3o%20de%20relaxamento.`}
               target="_blank"
               rel="noopener noreferrer"
               className="w-full bg-[#27211D] text-[#FAF7F2] py-2.5 px-4 text-xs uppercase tracking-widest font-medium flex items-center justify-center gap-2"
             >
               <MessageCircle className="w-4 h-4 text-[#25D366]" />
-              <span>Book via WhatsApp ({VERIFIED_BUSINESS_INFO.phone})</span>
+              <span>Agendar no WhatsApp ({VERIFIED_BUSINESS_INFO.phone})</span>
             </a>
 
             <button
@@ -176,14 +176,14 @@ export const Navbar: React.FC<NavbarProps> = ({ currentUser, onOpenAudit, onOpen
               className="w-full bg-[#EFE8DE] text-[#27211D] py-2 px-3 text-xs tracking-wider font-medium flex items-center justify-center gap-2 border border-[#DFCFC1]"
             >
               <AlertCircle className="w-4 h-4 text-amber-700" />
-              <span>Review Missing Information Checklist</span>
+              <span>Ver Lista de Informações em Falta</span>
             </button>
 
             {currentUser ? (
               <div className="flex items-center justify-between text-xs py-2 px-3 bg-[#F4EFEB] rounded">
-                <span>Signed in as {currentUser.displayName || currentUser.email}</span>
+                <span>Sessão iniciada como {currentUser.displayName || currentUser.email}</span>
                 <button onClick={handleLogout} className="text-red-700 font-medium">
-                  Sign out
+                  Sair
                 </button>
               </div>
             ) : (
@@ -192,7 +192,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentUser, onOpenAudit, onOpen
                 className="w-full py-2 border border-[#D5C7B8] text-xs font-medium text-[#27211D] flex items-center justify-center gap-2"
               >
                 <User className="w-4 h-4" />
-                <span>Sign in with Google</span>
+                <span>Entrar com Google</span>
               </button>
             )}
           </div>

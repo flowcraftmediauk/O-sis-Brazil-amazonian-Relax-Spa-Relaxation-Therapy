@@ -8,18 +8,18 @@ export const GallerySection: React.FC = () => {
   const images = [
     {
       url: heroImg,
-      title: 'Therapy & Rest Space',
-      caption: 'Quiet, warm environment prepared for restorative massage',
+      title: 'Espaço de Tratamento e Descanso',
+      caption: 'Ambiente silencioso, acolhedor e preparado para massagens restauradoras',
     },
     {
       url: stonesImg,
-      title: 'Thermal & Botanical Elements',
-      caption: 'Heated basalt stones, lavender, and melting candle wax',
+      title: 'Elementos Térmicos e Botânicos',
+      caption: 'Pedras vulcânicas de basalto, alfazema e velas aromáticas para massagem',
     },
     {
       url: massageImg,
-      title: 'Serene Atmosphere Details',
-      caption: 'Natural textures, warm wood, and gentle ambient lighting',
+      title: 'Pormenores de Serenidade',
+      caption: 'Texturas naturais, madeira aconchegante e iluminação suave e relaxante',
     },
   ];
 
@@ -28,19 +28,19 @@ export const GallerySection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-14 space-y-3">
           <span className="text-xs uppercase tracking-[0.25em] text-[#B68D5D] font-medium">
-            Visual Ambience
+            Ambiente Visual
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#27211D]">
-            The Spa Sanctuary
+            O Refúgio de Bem-Estar
           </h2>
           <p className="text-sm text-[#736960] font-light leading-relaxed">
-            A tranquil aesthetic preview capturing the calming warmth, organic linens, and peaceful atmosphere planned for the client's brand.
+            Uma pré-visualização estética que traduz o calor, a serenidade, as fibras naturais e a paz planeadas para o conceito da marca em Faro.
           </p>
 
           <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#FAF7F2] border border-[#DFCFC1] rounded-full text-[11px] text-[#736960]">
             <Camera className="w-3.5 h-3.5 text-[#B68D5D]" />
             <span>
-              Aesthetic preview — Official studio photography to be supplied by client
+              Inspiração estética — Fotografias oficiais do espaço serão fornecidas pelo cliente
             </span>
           </div>
         </div>

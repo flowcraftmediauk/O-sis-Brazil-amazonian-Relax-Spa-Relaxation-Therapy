@@ -12,13 +12,13 @@ export const PriceConfirmationSection: React.FC<PriceConfirmationSectionProps> =
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-14 space-y-3">
           <span className="text-xs uppercase tracking-[0.25em] text-[#B68D5D] font-medium">
-            Transparent Audit Schedule
+            Tabela de Auditoria e Validação
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#27211D]">
-            Preliminary Price Schedule
+            Tabela Preliminar de Preços
           </h2>
           <p className="text-sm text-[#736960] font-light leading-relaxed">
-            The rates below are transcribed verbatim from WhatsApp promotional flyers. They remain explicitly classified as <em>Preliminary</em> pending final verification from the client.
+            Os valores apresentados foram transcritos das publicações do perfil do WhatsApp Business. Encontram-se categorizados como <em>Preliminares</em> até validação formal pelo responsável.
           </p>
         </div>
 
@@ -27,10 +27,10 @@ export const PriceConfirmationSection: React.FC<PriceConfirmationSectionProps> =
           <div className="p-6 bg-[#F4EFEB] border-b border-[#E8DDD2] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
               <h3 className="font-serif text-lg font-medium text-[#27211D]">
-                Promotional Catalog Verification Status
+                Estado de Verificação do Catálogo Promocional
               </h3>
               <p className="text-xs text-[#736960]">
-                Extracted from client WhatsApp profile images • 4 services identified
+                Retirado das imagens do WhatsApp da empresa • 4 tratamentos identificados
               </p>
             </div>
             <button
@@ -38,7 +38,7 @@ export const PriceConfirmationSection: React.FC<PriceConfirmationSectionProps> =
               className="inline-flex items-center gap-1.5 text-xs text-[#27211D] font-medium bg-[#FAF7F2] border border-[#DFCFC1] px-3.5 py-2 rounded-lg hover:bg-white transition-colors cursor-pointer self-start sm:self-auto"
             >
               <FileText className="w-3.5 h-3.5 text-[#B68D5D]" />
-              <span>View Client Question #1</span>
+              <span>Ver Pergunta #1 para o Cliente</span>
             </button>
           </div>
 
@@ -55,7 +55,7 @@ export const PriceConfirmationSection: React.FC<PriceConfirmationSectionProps> =
                     </span>
                   </div>
                   <p className="text-xs text-[#736960]">
-                    {s.name} • {s.description}
+                    {s.description}
                   </p>
                 </div>
 
@@ -70,7 +70,7 @@ export const PriceConfirmationSection: React.FC<PriceConfirmationSectionProps> =
                       {s.preliminaryPrice}
                     </span>
                     <span className="block text-[10px] text-amber-800 bg-amber-50 border border-amber-200 rounded px-1.5 py-0.5 mt-0.5">
-                      Needs Client Confirmation
+                      Aguardando Confirmação
                     </span>
                   </div>
                 </div>
@@ -80,16 +80,16 @@ export const PriceConfirmationSection: React.FC<PriceConfirmationSectionProps> =
 
           <div className="p-6 bg-[#FAF7F2] border-t border-[#E8DDD2] flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-xs text-[#736960] max-w-xl">
-              *Notice to Client: Once confirmed, these tags will be updated to finalized published prices and unlocked across the automated booking system.
+              *Nota: Assim que validados pelo cliente, estes preços serão atualizados para a versão definitiva e desbloqueados no fluxo de agendamento automático.
             </p>
             <a
-              href={`https://wa.me/${VERIFIED_BUSINESS_INFO.phoneClean}?text=Hello%20O%C3%A1sis%20Brazil%2C%20I%20am%20reviewing%20the%20website%20preview%20and%20confirming%20the%20preliminary%20massage%20prices.`}
+              href={`https://wa.me/${VERIFIED_BUSINESS_INFO.phoneClean}?text=Ol%C3%A1%20O%C3%A1sis%20Brazil%2C%20estou%20a%20verificar%20a%20pr%C3%A9-visualiza%C3%A7%C3%A3o%20do%20site%20e%20a%20confirmar%20os%20pre%C3%A7os%20preliminares%20das%20massagens.`}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-[#27211D] text-[#FAF7F2] hover:bg-[#3E342B] px-4 py-2 text-xs uppercase tracking-wider font-medium flex items-center gap-2 shrink-0 transition-colors"
             >
               <MessageCircle className="w-3.5 h-3.5 text-[#25D366]" />
-              <span>Confirm Rates on WhatsApp</span>
+              <span>Confirmar Preços no WhatsApp</span>
             </a>
           </div>
         </div>

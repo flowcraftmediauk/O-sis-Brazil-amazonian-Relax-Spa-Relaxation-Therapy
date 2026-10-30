@@ -17,9 +17,9 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAudit }) => {
               {VERIFIED_BUSINESS_INFO.name}
             </span>
             <p className="text-xs text-[#FAF7F2]/70 leading-relaxed max-w-sm font-light">
-              Relaxation therapy and dedicated spa sessions crafted to ease tension and restore wellness. Operating strictly by appointment in Faro, Portugal.
+              Terapias de relaxamento dedicadas e sessões de spa desenhadas para aliviar a tensão física e renovar o bem-estar. Atendimento exclusivo por agendamento prévio em Faro, Portugal.
             </p>
-            <div className="pt-2 flex items-center gap-3">
+            <div className="pt-2 flex flex-wrap items-center gap-3">
               {/* Facebook Verified Link */}
               <a
                 href={VERIFIED_BUSINESS_INFO.facebook.url}
@@ -33,11 +33,11 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAudit }) => {
 
               {/* YouTube Incomplete Link Notice */}
               <div
-                title="Full YouTube URL pending client confirmation (begins with https://youtube.com/@massage...)"
+                title="Ligação completa do YouTube a aguardar confirmação do cliente (inicia em https://youtube.com/@massage...)"
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 text-xs text-[#FAF7F2]/50 cursor-help"
               >
                 <Youtube className="w-3.5 h-3.5 text-red-400/60" />
-                <span>YouTube: @massage... (Pending link)</span>
+                <span>YouTube: @massage... (Link pendente)</span>
               </div>
             </div>
           </div>
@@ -45,37 +45,37 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAudit }) => {
           {/* Quick Nav */}
           <div className="lg:col-span-3 space-y-3">
             <h5 className="font-serif text-lg font-medium tracking-wide text-white">
-              Navigation
+              Navegação
             </h5>
             <ul className="space-y-2 text-xs text-[#FAF7F2]/70">
               <li>
                 <a href="#about" className="hover:text-white transition-colors">
-                  About the Sanctuary
+                  Sobre o Refúgio
                 </a>
               </li>
               <li>
                 <a href="#services" className="hover:text-white transition-colors">
-                  Massage & Spa Services
+                  Massagens e Spa
                 </a>
               </li>
               <li>
                 <a href="#pricing" className="hover:text-white transition-colors">
-                  Preliminary Price Schedule
+                  Tabela Preliminar de Preços
                 </a>
               </li>
               <li>
                 <a href="#gallery" className="hover:text-white transition-colors">
-                  Visual Atmosphere
+                  Ambiente e Espaço
                 </a>
               </li>
               <li>
                 <a href="#location" className="hover:text-white transition-colors">
-                  Location in Faro
+                  Localização em Faro
                 </a>
               </li>
               <li>
                 <a href="#contact" className="hover:text-white transition-colors">
-                  Booking & WhatsApp
+                  Marcações no WhatsApp
                 </a>
               </li>
             </ul>
@@ -84,7 +84,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAudit }) => {
           {/* Verified Contact Details */}
           <div className="lg:col-span-4 space-y-3">
             <h5 className="font-serif text-lg font-medium tracking-wide text-white">
-              Verified Contacts
+              Contactos Oficiais
             </h5>
             <ul className="space-y-2.5 text-xs text-[#FAF7F2]/80">
               <li className="flex items-center gap-2">
@@ -101,7 +101,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAudit }) => {
               </li>
               <li className="flex items-center gap-2">
                 <MapPin className="w-3.5 h-3.5 text-[#B68D5D]" />
-                <span>Faro, Portugal (Appointment only)</span>
+                <span>Faro, Portugal (Apenas por marcação)</span>
               </li>
               <li className="flex items-center gap-2">
                 <MessageCircle className="w-3.5 h-3.5 text-[#25D366]" />
@@ -111,7 +111,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAudit }) => {
                   rel="noopener noreferrer"
                   className="hover:underline text-emerald-400"
                 >
-                  WhatsApp Booking Line
+                  Canal Direto de WhatsApp
                 </a>
               </li>
             </ul>
@@ -121,7 +121,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAudit }) => {
                 onClick={onOpenAudit}
                 className="text-[11px] text-amber-300 hover:text-amber-200 underline cursor-pointer"
               >
-                Missing Information — Client Clarification List
+                Informações em Falta — Lista de Verificação
               </button>
             </div>
           </div>
@@ -129,10 +129,10 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAudit }) => {
 
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-[#FAF7F2]/50 gap-4">
-          <p>© {new Date().getFullYear()} Oásis Brazil amazonian Relax. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Oásis Brazil amazonian Relax. Todos os direitos reservados.</p>
           <p className="flex items-center gap-1.5">
             <Shield className="w-3.5 h-3.5 text-[#B68D5D]" />
-            <span>Built exclusively with verified business details • No assumed claims</span>
+            <span>Construído exclusivamente com dados oficiais verificados</span>
           </p>
         </div>
       </div>

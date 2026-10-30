@@ -29,17 +29,17 @@ export const ClientAuditModal: React.FC<ClientAuditModalProps> = ({ isOpen, onCl
             </div>
             <div>
               <h3 className="font-serif text-xl font-medium tracking-wide">
-                Information Missing — Ask the Client
+                Informações em Falta — Perguntar ao Cliente
               </h3>
               <p className="text-xs text-[#FAF7F2]/70 mt-0.5">
-                Client Review Checklist • Handled strictly one question at a time
+                Lista de Verificação para o Cliente • Respondida estritamente uma pergunta de cada vez
               </p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="text-[#FAF7F2]/70 hover:text-white p-1 rounded-md transition-colors"
-            aria-label="Close dialog"
+            className="text-[#FAF7F2]/70 hover:text-white p-1 rounded-md transition-colors cursor-pointer"
+            aria-label="Fechar janela"
           >
             <X className="w-6 h-6" />
           </button>
@@ -50,7 +50,7 @@ export const ClientAuditModal: React.FC<ClientAuditModalProps> = ({ isOpen, onCl
           <div className="flex items-start justify-between gap-4">
             <div>
               <span className="text-[10px] uppercase font-bold tracking-widest text-amber-900 bg-amber-200/80 px-2 py-0.5 rounded">
-                Active Question #1 to Ask Now
+                Pergunta Ativa #1 para Fazer Agora
               </span>
               <h4 className="font-serif text-lg font-medium text-amber-950 mt-1.5">
                 {MISSING_CLIENT_QUESTIONS[0].title}
@@ -66,12 +66,12 @@ export const ClientAuditModal: React.FC<ClientAuditModalProps> = ({ isOpen, onCl
               {copiedId === MISSING_CLIENT_QUESTIONS[0].id ? (
                 <>
                   <Check className="w-3.5 h-3.5 text-emerald-400" />
-                  <span>Copied!</span>
+                  <span>Copiado!</span>
                 </>
               ) : (
                 <>
                   <Copy className="w-3.5 h-3.5" />
-                  <span>Copy Question</span>
+                  <span>Copiar Pergunta</span>
                 </>
               )}
             </button>
@@ -81,7 +81,7 @@ export const ClientAuditModal: React.FC<ClientAuditModalProps> = ({ isOpen, onCl
         {/* Full Missing Details List */}
         <div className="p-6 overflow-y-auto space-y-4 flex-1">
           <p className="text-xs text-[#736960] leading-relaxed">
-            Per strict project instructions, we never invent client business information or fill blanks with assumptions. Below is the complete catalogue of items to clarify sequentially with the client:
+            De acordo com as regras estritas do projeto, nunca inventamos dados do negócio nem preenchemos lacunas com suposições. Segue o catálogo completo de pontos a validar sequencialmente:
           </p>
 
           <div className="divide-y divide-[#E8DDD2] border border-[#E8DDD2] rounded-xl overflow-hidden bg-white">
@@ -102,7 +102,7 @@ export const ClientAuditModal: React.FC<ClientAuditModalProps> = ({ isOpen, onCl
                             : 'bg-amber-100 text-amber-800 border border-amber-200'
                         }`}
                       >
-                        {item.currentStatus}
+                        {item.currentStatus === 'Missing' ? 'Em Falta' : item.currentStatus === 'Clarification Needed' ? 'A Clarificar' : 'Preliminar'}
                       </span>
                     </div>
 
@@ -117,7 +117,7 @@ export const ClientAuditModal: React.FC<ClientAuditModalProps> = ({ isOpen, onCl
 
                   <button
                     onClick={() => handleCopy(item.id, item.questionForClient)}
-                    title="Copy question text"
+                    title="Copiar texto da pergunta"
                     className="shrink-0 p-2 text-[#736960] hover:text-[#27211D] hover:bg-[#F4EFEB] rounded border border-[#E8DDD2] transition-colors cursor-pointer"
                   >
                     {copiedId === item.id ? (
@@ -134,12 +134,12 @@ export const ClientAuditModal: React.FC<ClientAuditModalProps> = ({ isOpen, onCl
 
         {/* Modal Footer */}
         <div className="p-4 bg-[#F4EFEB] border-t border-[#E8DDD2] flex items-center justify-between text-xs text-[#736960]">
-          <span>Ask only ONE question at a time. The preview website updates upon confirmation.</span>
+          <span>Faça apenas UMA pergunta de cada vez. O website é atualizado após cada resposta do cliente.</span>
           <button
             onClick={onClose}
             className="px-4 py-2 bg-[#27211D] text-[#FAF7F2] rounded text-xs uppercase tracking-wider font-medium hover:bg-[#3E342B] cursor-pointer"
           >
-            Close Checklist
+            Fechar Janela
           </button>
         </div>
       </div>
